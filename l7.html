@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 7 - DDL & DML</title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a class="active" href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+
+
+<div class="content">
+<div class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+<div class="container">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 0px;">~ Lesson 7 ~<br> SQL - DDL & DML</h2>
+    <img class="img-fluid" src="img/l7-banner.jpg" alt="lesson-7-banner" style="margin-bottom: 40px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12", style="float: left;">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  DDL & DML restatement<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li style="font-weight: bold;"> DDL - Data Definition Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>When you design your database, you set up different tables for different kinds of data. There are simple commands or 
+                          statements to create a table, change what types of records that table will hold, or discard the table from your database</li>
+                        <li>The SQL commands for these are, simply enough, CREATE, ALTER, and DROP, respectively</li>
+                        <li style="margin-bottom: 30px;">These commands cover the activity of designing, or more accurately defining, your database, 
+                          and together they form a category of SQL commands called Data Definition Language or DDL.</li>
+                      </ul>
+                    </li>
+                    <li style="font-weight: bold;"> DML - Data Manipulation Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>You might want to add records to tables, change some of the data in those records, 
+                          and remove records. The SQL commands for those actions are INSERT, UPDATE and DELETE.</li>
+                        <li style="margin-bottom: 30px;">They form the SQL category of Data Manipulation Language or DML.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  DDL - CREATE<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body px-3 mb-4">
+                  <p>Under the scope of this lesson, we will cover 3 of the most used situations of CREATE statements</p>
+                  <ul class="list-parent">
+                    <li><b>CREATE DATABASE:</b> 
+                      <ul class="list-child">
+                        <li>The CREATE DATABASE statement is used to create a new SQL database.</li>
+                        <li>The syntax is pretty simple as follow:<p style="text-align: center;"><img src="img/create-db.png" class="img-fluid"></p></li>
+                        <li><i><u>Example:</u> </i>The following query will create a new SQL database named <b>TestDB</b>.
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/create-db-eg.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                    <li><b>CREATE TABLE:</b>
+                      <ul class="list-child">
+                        <li>The CREATE TABLE statement is used to create a new table in a database.</li>
+                        <li><i><u>Syntax 1:</u> </i>Create a new table <p style="text-align: center;"><img src="img/create-tb.png" class="img-fluid"></p>
+                          <p><i><u>Example:</u> </i>The following example creates a table named <b>Persons</b> that contains five columns: <i>PersonID, LastName, FirstName, Address</i>, and <i>City</i>.
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/create-tb-eg.png" class="img-fluid"></p></li>
+                        <li><i><u>Syntax 2:</u> </i>Create a new table using an existing table (If you create a new table using an existing table, the new table will be filled with the existing values from the old table)<p style="text-align: center;"><img src="img/create-tb1.png" class="img-fluid"></p>
+                          <p><i><u>Example:</u> </i>The following SQL creates a new table named <b>TestTables</b> (which is a copy of the <b>Customers</b> table): 
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/create-tb-eg1.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                    <li><b>CREATE VIEW:</b>
+                      <ul class="list-child">
+                        <li>In SQL, a view is a virtual table based on the result-set of an SQL statement.</li>
+                        <li>A view contains rows and columns, just like a real table. Users create a view by adding the fields from one or more real tables in the database.</li>
+                        <li><i><u>Syntax: </u></i> <p style="text-align: center;"><img src="img/create-view.png" class="img-fluid"></p></li>
+                        <li><i><u>Example:</u> </i>The following SQL creates a view that shows all customers from Brazil:
+                          <p style="text-align: center; margin-bottom: 30px;"><img src="img/create-view-eg.png" class="img-fluid"></p></li>
+                        <li>A view can be used for query like a normal table:
+                          <p style="text-align: center; margin-bottom: 30px;"><img src="img/create-view-query.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  DDL - DROP<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <p>Similar to the CREATE statements above, 3 of the most used situations of DROP statements are DROP DATABASE, DROP TABLE, and DROP VIEW</p>
+                  <ul class="list-parent">
+                    <li><b>DROP DATABASE:</b> 
+                      <ul class="list-child">
+                        <li>The DROP DATABASE statement is used to drop an existing SQL database.</li>
+                        <li><i><u>Syntax:</u> </i><p style="text-align: center;"><img src="img/drop-db.png" class="img-fluid"></p>
+                          <p><small><b>*NOTE: </b>Be careful before dropping a database. Deleting a database will result in loss of complete information stored in the database!</small></p></li>
+                        <li><i><u>Example:</u> </i>The following SQL statement drops an existing database named <b>testDB</b>.
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/drop-db-eg.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                    <li><b>DROP TABLE:</b>
+                      <ul class="list-child">
+                        <li>The DROP TABLE statement is used to drop an existing table in a database.</li>
+                        <li><i><u>Syntax:</u> </i><p style="text-align: center;"><img src="img/drop-tb.png" class="img-fluid"></p>
+                          <p><small><b>*NOTE: </b>Be careful before dropping a table. Deleting a table will result in loss of complete information stored in the table!</small></p></li>
+                        <li><i><u>Example:</u> </i>The following SQL statement drops an existing table named <b>Shippers</b>.
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/drop-tb-eg.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                    <li><b>DROP VIEW:</b>
+                      <ul class="list-child">
+                        <li>A view is deleted with the DROP VIEW command.</li>
+                        <li><i><u>Syntax:</u> </i> <p style="text-align: center;"><img src="img/drop-view.png" class="img-fluid"></p></li>
+                        <li><i><u>Example:</u> </i>The following SQL drops the view named <b>Brazil Customers</b>:
+                          <p style="text-align: center; margin-bottom: 50px;"><img src="img/drop-view-eg.png" class="img-fluid"></p></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse2">
+                  DDL - ALTER (Alter table)<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.</li>
+                    <li>It can also be used to add and drop various constraints on an existing table.</li>
+                    <li><i><u>Syntax 1 - ADD Column:</u> </i>To add a column in a table: <p style="text-align: center;"><img src="img/alter-tb-add.png" class="img-fluid"></p>
+                      <p><i><u>Example:</u> </i>The following SQL adds an <i>Email</i> column to the <b>Customers</b> table.
+                      <p style="text-align: center; margin-bottom: 30px;"><img src="img/alter-tb-add-eg.png" class="img-fluid"></p></li>
+                    <li><i><u>Syntax 2 - DROP Column:</u> </i>To drop a column in a table: <p style="text-align: center;"><img src="img/alter-tb-drop.png" class="img-fluid"></p>
+                      <p><i><u>Example:</u> </i>The following SQL deletes an <i>Email</i> column to the <b>Customers</b> table.
+                      <p style="text-align: center; margin-bottom: 30px;"><img src="img/alter-tb-drop-eg.png" class="img-fluid"></p></li>
+                    <li><i><u>Syntax 3 - MODIFY Column:</u> </i>To change the data type of a column in a table: <p style="text-align: center;"><img src="img/alter-tb-modify.png" class="img-fluid"></p>
+                      <small><b>*NOTE: </b>Some SQL engines use <b>MODIFY COLUMN</b> or <b>MODIFY</b> instead of <b>ALTER COLUMN</b>, so pay attention to database-specific dialects to avoid incorrect syntaxes.</small>
+                      <p><i><u>Example:</u> </i>The following SQL changes the data type of the column named <i>DateOfBirth</i> in the <b>Persons</b> table.
+                      <p style="text-align: center; margin-bottom: 50px;"><img src="img/alter-tb-modify-eg.png" class="img-fluid"></p></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse2">
+                  DML - INSERT INTO<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>The INSERT INTO statement is used to insert new records in a table.</li>
+                    <li><i><u>Syntax 1:</u> </i>Specifying both the column names and the values to be inserted: <p style="text-align: center;"><img src="img/insert1.png" class="img-fluid"></p>
+                      <p><i><u>Example:</u> </i>The following SQL statement will insert a new record in the <b>Customers </b>table, but only with the <i>CustomerName</i>, <i></i>City</i>, and <i></i>Country</i> columns.
+                      <p style="text-align: center; margin-bottom: 30px;"><img src="img/insert1-eg.png" class="img-fluid"></p></li>
+                      <p><small>The number of columns specified in this INSERT INTO statement does not necessarily represent the actual number of columns in the <b>Customers </b>table.</small></p>
+                    <li><i><u>Syntax 2:</u> </i>Adding values for all the columns of the table: <p style="text-align: center;"><img src="img/insert2.png" class="img-fluid"></p>
+                      <small style="margin-bottom: 50px;"><b>*NOTE: </b>In this case of INSERT, users do not need to specify the column names in the SQL query. However, make sure the order of the values is in the same order as the columns in the table.</small></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse2">
+                  DML - UPDATE<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent>
+                    <li>The UPDATE statement is used to modify the existing records in a table.</li>
+                    <li><i><u>Syntax: </u></i> <p style="text-align: center;"><img src="img/update-tb.png" class="img-fluid"></p></li>
+                    <li><i><u>Example: </u></i>The following SQL statement updates the first customer (<i>CustomerID = 1</i>) with a new contact name and a new city:
+                      <p style="text-align: center; margin-bottom: 30px;"><img src="img/update-tb-eg.png" class="img-fluid"></p></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse2">
+                  DML - DELETE<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>The DELETE statement is used to delete existing records in a table.</li>
+                    <li><i><u>Syntax: </u></i> <p style="text-align: center;"><img src="img/delete-from.png" class="img-fluid"></p>
+                      <p><small><b>*NOTE: </b>The query <b>DELETE FROM table_name</b> without the <b>WHERE</b> condition will delete all records in the table specified (the table will still exist, only the data will be deleted)</small></p></li>
+                      <p style="text-align: center;"><img src="img/delete-from1.png" class="img-fluid"></p>
+                    <li><i><u>Example:</u> </i>
+                      <p>The following SQL statement deletes the customer named <i>"Alfreds Futterkiste"</i> from the <b>Customers</b> table:</p>
+                      <p style="text-align: center; margin-bottom: 50px;"><img src="img/delete-from-eg.png" class="img-fluid"></p>
+                      <p>Meanwhile, the following SQL statement deletes all the customers from the <b>Customers</b> table:</p>
+                      <p style="text-align: center; margin-bottom: 50px;"><img src="img/delete-from1-eg.png" class="img-fluid"></p></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse2">
+                  An easier way to avoid mistaking DML statements vs DDL statements<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <img class="img-fluid text-center rounded" src="img/DDL-Vs-DML.jpg" style="margin-bottom: 30px;">
+                    <li>Some users new to SQL might find it difficult to distinguish between <b>DROP</b> and <b>DELETE</b> (both 
+                      are to remove something) or between <b>ALTER</b> and <b>UPDATE</b> (both are to change something).
+                      (<b>CREATE</b> vs <b>INSERT</b> should be easier to distinguish for most users)</li>
+                    <li>A better way to avoid using these statements in wrong positions is that DDL 
+                      is for working with the metadata, while DML is for working with the actual data.</li>
+                    <li>Accordingly, whenever you want to work on the actual data, refer to <b>INSERT</b>, <b>DELETE</b>, or <b>UPDATE</b>.
+                      Meanwhile, when working on the definition of data (or data repository), <b>CREATE</b>, <b>DROP</b>, or <b>ALTER</b> should be what you look for.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+</body>
+</html>

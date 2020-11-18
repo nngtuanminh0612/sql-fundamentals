@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 5 - Relationship queries (JOIN) </title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a class="active" href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+
+
+<div class="content">
+<div class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+<div class="container">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 0px;">~ Lesson 5 ~<br> SQL - Relationship queries (JOIN)</h2>
+    <img class="img-fluid" src="img/l5-banner.png" alt="lesson-5-banner" style="margin-bottom: 40px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12", style="float: left;">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  Joining Tables<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Any operation involving more than one table/entity, such as querying ontwo tables, will require a JOIN operation</li>
+                    <li>SQL specifies the links between tables in the query itself</li> 
+                    <li>To use fields from two tables in a query, specify both tables in the FROM clause, separated by a comma, and
+                      then specify the linking criteria (the common attribute that is used in one table to refer to a key in another)</li> 
+                  </ul>
+                  <figure style="margin-bottom: 50px;">
+                    <img class="img-fluid rounded" src="img/SQL-join-sample.png">
+                    <figcaption style="font-style: italic; margin-bottom: 30px; text-align: center;">Example of two tables linking to each other
+                      <p>In this case, the 'Mobile' and 'Customer' tables have a common attribute of <b>Customer_ID</b>, which will be used to join the two tables.</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  Linking criteria<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Linking criteria are the common attributes that are used in one table to refer to a key in one another.</li>
+                    <li>The minimum number of linking criteria required per query is one less than the number of table used. 
+                      <ul class="list-child">
+                        <li><u>Example</u>: When joining 4 tables, ther should be 3 linking criteria specified in the query.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  Where to put linking criteria in the query?<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li><b>In the FROM clause:</b>
+                      <ul class="list-child">
+                        <li>Linking criteria can be specified within the FROM clause when the tables are declared using [<i>... JOIN ... ON ...</i>] clause.</li>
+                        <figure>
+                          <img class="img-fluid rounded" src="img/Join-in-from.png">
+                          <figcaption style="font-style: italic; margin-bottom: 10px; text-align: center;">Example of linking criteria specified in FROM clause</figcaption>
+                        </figure>
+                        <li style="margin-bottom: 30px;">This allows LEFT JOIN and RIGHT JOIN to be performed properly.</li>
+                      </ul>
+                    </li>
+                    <li><b>In the WHERE clause:</b>
+                      <ul class="list-child">
+                        <li>Linking criteria can be specified in the WHERE clause as a joining condition.</li>
+                        <li>Multiple linking criteria can be combined using the AND keyword as working with normal query conditions.</li>
+                        <li>Linking criteria and other data conditions can also be combined using the AND keyword.</li>
+                        <figure>
+                          <img class="img-fluid rounded" src="img/join-in-where.png">
+                          <figcaption style="font-style: italic; margin-bottom: 10px; text-align: center;">Example of linking criteria specified in WHERE clause</figcaption>
+                        </figure>
+                        <li style="margin-bottom: 30px;">A limitation here is that only INNER JOIN can be specified in WHERE clause. 
+                          Other types of JOIN will required users to put linking criteria in the FROM clause.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse2">
+                  Table alias & Qualifying fields<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Table Alias
+                      <ul class="list-child">
+                        <li>A shorthand alias (normally an abbreviation of table name) can be used to refer to a table</li>
+                        <li>Declare the table alias just after the table name (separated with the table name by a space) in the FROM clause.</li>
+                      </ul>
+                    </li>
+                    <li>Qualifying fields
+                      <ul class="list-child">
+                        <li>Linking fields often have similar name, which can cause confusion (ambiguous fields) if no table name is specified.</li>
+                        <li>Any field name common to both joined tables must be qualified by the table name (or the table alias) within the query.</li>
+                        <li>Qualify common fields by pre-fixing the table name (or table alias) to the field name.</li>
+                      </ul>
+                    </li>
+                    <figure style="text-align: center;">
+                      <img class="img-fluid rounded" src="img/qualifying-field.png">
+                      <figcaption style="font-style: italic; margin-bottom: 30px; text-align: center;">Example of using table alias and qualifying fields</figcaption>
+                    </figure>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse2">
+                  Typical types of JOIN<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li><b>Inner Join</b>
+                      <ul class="list-child">
+                        <li>An INNER JOIN is made by specifying two fields (one in each table) that contain common values.</li>
+                        <li>Linking criteria in INNER JOIN can be specified either in the FROM clause or in the WHERE clause.</li>
+                      </ul>
+                    </li>
+                    <li><b>Outer Join</b>
+                      <ul class="list-child">
+                        <li>An OUTER JOIN specifies that all records from at least one table should be displayed, even if they have no match with in the other table.</li>
+                        <li>Linking criteria in OUTER JOIN can only be specified in the FROM clause using [<i>... JOIN ... ON ...</i>].</li>
+                        <li>3 types of Outer Join:
+                          <p style="margin-left: 30px;">LEFT OUTER JOIN</p>
+                          <p style="margin-left: 30px;">RIGHT OUTER JOIN</p>
+                          <p style="margin-left: 30px;">FULL OUTER JOIN</p>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><b>Self Join</b>
+                      <ul class="list-child">
+                        <li>A Self JOIN is a join of a table to itself. This is a Unary relationship.</li>
+                        <li>The table name appears twice in the FROM clause with two different alias for qualifying fields (Table alias is mandatory in this case).</li>
+                        <li>The linking criteria in Self JOIN can be specified either in the FROM clause or in the WHERE clause, but table alias is required for qualifying linking fields.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p><b><i>View the summary of typical JOIN types <a href="l5b.html"><u>HERE</u></a></i></b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse2">
+                  Rarely used JOIN types<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                    <p>Apart from the above, there are some other JOIN types that are rarely used:</p>
+                    <ul class="list-parent">
+                      <li><b>Natural Join</b>
+                        <ul class="list-child">
+                          <li>NATURAL JOIN is a type of INNER join that makes the database system automatically identify the linking fields 
+                            based on the field name (e.g: If the system finds two fields with similar names in two specified tables, it will
+                            automaticaly consider those two fields as the linking criteria without expressly being declared by users.)</li>
+                          <li>This might cause confusion for the database as there could be more than one pairs of similar field name, so it is rarely used.</li>
+                          <li>Syntax: [SELECT ... FROM table_1 NATURAL JOIN table_2]</li>
+                        </ul>
+                      </li>
+                      <li><b>Unbounded Join (Cross Join)</b>
+                        <ul class="list-child">
+                          <li>An UNBOUNDED JOIN is the combination of every row in one table with every row in the other table, regardless of their values.</li>
+                          <li>The number of rows in the result will equal to the multiplication of the numbers of rows in both tables (called a Cartesian product).</li>
+                          <li>In reality, this type of JOIN is barely used because it is of almost no value or benefit.</li>
+                          <li>Syntax: [SELECT ... FROM table_1, table_2]</li>
+                        </ul>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+</html>

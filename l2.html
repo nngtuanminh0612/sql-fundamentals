@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 2 - SQL Introduction </title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a class="active" href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+
+
+<div class="content">
+<div class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+<div class="container">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 0px;">~ Lesson 2 ~<br> SQL Introduction </h2>
+    <img class="img-fluid" src="img/l2-banner.png" alt="lesson-2-banner" style="margin-bottom: 40px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12", style="float: left;">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title" id="showingSqlBenefits">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  SQL - Structured Query Lanugage definition? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>In 1974, Don Chamberlin and Ray Boyce settled on the language they called Structured Query Language, also 
+                      called SQL, after trying to implement a research idea of their coleague, Edgar Codd, on working with data. </li>
+                    <li><b>SQL - Structured Query Lanugage</b> is a domain-specific language used in programming and designed for managing data held 
+                    in a relational database management system, or for stream processing in a relational data stream management system.</li>
+                    <li>SQL is a Declarative Language - users specify what they want, not how the computer (or DBMS) should get them.
+                    It is like ordering a meal versus develop (and follow) a recipe to cook the meal.</li>
+                  </ul>
+                  <figure style="margin-bottom: 50px;">
+                    <img class="img-fluid rounded-circle" src="img/sql-general.jpg">
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse00" aria-expanded="true" aria-controls="collapse0">
+                  Why should we learn SQL?<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse00" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li><b>Effective Data Mining</b>
+                      <p>Learning SQL will allow you to mine data with greater efficiency. Using basic queries you can 
+                        identify specific data at time intervals, view update events, monitor table activity, and much more. </p>
+                    </li>
+                    <li><b>Improved Data Manipulation</b> 
+                      <p>SQL is particularly effective at data manipulation. Because it allows you to see the exact data and how it works,
+                        you’ll have an easier time testing and manipulating the data. Furthermore, data stored in SQL is dynamic, 
+                        meaning it can me modified and manipulated at any time using some basic queries.</p>
+                    </li>
+                    <li><b>Easily Combining Data from Multiple Sources</b> 
+                      <p>Combining data from two or more sources can be time-consuming and downright daunting task. However, SQL makes
+                        the process a breeze by supporting simple “merges” in which the specified fields or entire databases are combined.</p>
+                    </li>
+                    <li><b>Practical Management of Humongous Data</b> 
+                      <p>Traditional spreadsheets can be used to manage small-to-medium-sized pools of data, but you’ll need a different 
+                        solution when handling excessively large records. Thankfully, this is an area in which SQL shines: whether it’s 
+                        1,000 records or 100 million, SQL is fully equipped to manage datapools of virtually all sizes.</p>
+                    </li>
+                    <li><b>Simple Troubleshooting</b> 
+                      <p>SQL is one of those programming languages in which you can easily troubleshoot the issues. For example, if there 
+                        is a syntax error, then the error which is displayed clearly shows what is missing in the command which you have used,
+                        or what is misspelled or if any indicator is mentioned at the wrong place. Apart from this, if you are trying to use 
+                        a database or a table that does not exist, the error displays that the database or the table does not exist.</p>
+                    </li>
+                    <li><b>Better Server Management with Databases</b> 
+                      <p>If you plan on managing servers, or creating your own server, SQL programming language will most certainly
+                        prove useful. Many servers use databases like MySQL or SQL Server to, well, store data. By familiarizing 
+                        yourself with SQL and its respective queries, you can easily navigate through the otherwise confusing web of datasets.</p>
+                    </li>
+                    <li><b>High Paying Jobs and High Demand for SQL Programmers</b> 
+                      <ul class="list-child">
+                        <li>Consider the below graph for the SQL Developer salary trend
+                          <img class="img-fluid" src="img/sql-job-paying.png" style="margin-bottom: 30px;"></li>
+                        <li>Apart from the salaries, SQL skills are in high-demand because almost every technical role requires an understanding of SQL. 
+                          It could be any industry like Finance, Accounting, Web Development, Digital Marketing, etc.. According to the job posting website Indeed.com, there are more SQL 
+                          programming jobs (in 2019) than any other type of programming language, including Java, JavaScript, C+, Python, C++, and PHP.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  Four main types of activitites with SQL<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li style="font-weight: bold;"> DDL - Data Definition Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>When you design your database, you set up different tables for different kinds of data. There are simple commands or 
+                          statements to create a table, change what types of records that table will hold, or discard the table from your database</li>
+                        <li>The SQL commands for these are, simply enough, CREATE, ALTER, and DROP, respectively</li>
+                        <li style="margin-bottom: 30px;">These commands cover the activity of designing, or more accurately defining, your database, 
+                          and together they form a category of SQL commands called Data Definition Language or DDL.</li>
+                      </ul>
+                    </li>
+                    <li style="font-weight: bold;"> DML - Data Manipulation Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>You might want to add records to tables, change some of the data in those records, 
+                          and remove records. The SQL commands for those actions are INSERT, UPDATE and DELETE.</li>
+                        <li style="margin-bottom: 30px;">They form the SQL category of Data Manipulation Language or DML.</li>
+                      </ul>
+                    </li>
+                    <li style="font-weight: bold;"> DML - Data Query Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>Of course, once you set up your tables and then put some data into your database, you
+                          can do one of the main things people do with data: you can ask questions about it.</li>
+                        <li>The SELECT statement is the superstar of the SQL commands. It is the one
+                          command in SQL for asking questions and getting answers out of your database.</li>
+                        <li style="margin-bottom: 30px;">The SELECT statement is so important that it has its own category all by itself: the Data Query Language category or DQL.</li>
+                      </ul>
+                    </li>
+                    <li style="font-weight: bold;"> DCL - Data Control Language
+                      <ul class="list-child" style="font-weight: normal;">
+                        <li>Finally, to have different users with different roles use your database, you can 
+                          use the SQL statements GRANT and REVOKE in the category of Data Control Language or DCL. </li>
+                        <li>The GRANT statement is to create a user account or give a user certain privileges in your database</li>
+                        <li style="margin-bottom: 30px;">The REVOKE statement can remove a privilege that was previously granted. </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  The order of SQL statements <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Now you know the four general types of database activities in the basic SQL 
+                      commands for them. The order of the statements given here has some meaning.</li>
+                    <li>You must create a table (DDL) before you can put any data into it (DML) or give access to 
+                      different users (DCL), and once you put data into the table, you can query it (DQL).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse2">
+                  The frequency of SQL statements <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>In terms of how often you will use these statements, it's a different order.</li>
+                    <li>SELECTs or DQL statements are what you will do the most often by far. 
+                      DML statements take second place, and DDL and DCL maybe fairly rare.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse2">
+                  Popular database systems / database engines <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <p>Below are some of the most used database engines</p>
+                  <ul class="list-parent">
+                    <li>Oracle</li>
+                    <li>Postgres, MySQL</li>
+                    <li>SQLite</li>
+                    <li>Ingres, Informix <i>(Unix)</i></li>
+                    <li>DB2, SQL/DS <i>(IBM)</i></li>
+                    <li>Access, SQL Server <i>(Microsoft)</i></li>
+                    <li>Some old engines: Pick, Universe, D3, IMS, etc.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                  <h3 class="panel-title">
+                  <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse3">
+                    SQL Standards and dialects<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                  </a>
+                  </h3>
+              </div>
+              <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                  <div class="panel-body px-3 mb-4">
+                    <ul class="list-parent">
+                      <li>Speaking of different commands, there's a twist on SQL itself. The worldwide engineering community has developed 
+                        a standard for SQL. SQL has evolved and grown over the years, and so the "official standard" has been revised and
+                        republished several times. However, almost no commercial vendor actually implements standard SQL exactly, 100 percent.</li>
+                      <li>So, we really have different SQL dialects for different software programs. Although most SQL systems
+                        are at least 90 or 95 percent alike, every system will have its own peculiar dialect, with some small 
+                        differences in the exact commands that are available, or some optional details in the commands.</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

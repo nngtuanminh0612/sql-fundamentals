@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 4 - Grouping data (GROUP BY) </title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a class="active" href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+
+
+<div class="content">
+<div class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+<div class="container">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 0px;">~ Lesson 4 ~<br> SQL - Grouping data (GROUP BY) </h2>
+    <img class="img-fluid" src="img/l4-banner.png" alt="lesson-4-banner" style="margin-bottom: 40px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12", style="float: left;">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  Grouped Aggregation & GROUP BY clause<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Grouped Aggregation allows us to collate rows in a result set based on some criteria and apply some operations or further filtering on collated/grouped result sets. </li>
+                    <li>A grouping field is selected to group the rows. The rows are sorted by the grouping field.</li>
+                    <li>Rows with the same value for the grouping field are treated as a "group".</li>
+                    <li>The GROUP BY clause is added to the SELECT statement in order to group the data from the SELECT table(s) and produces a single summary row for each group.</li>
+                    <li>Usually a statistical function is also used and applied to each group (e.g: SUM, AVG, COUNT, etc.)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  An example of GROUP BY<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" style="margin-bottom: 30px;" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body px-3 mb-4">
+                  <figure style="text-align: center;">
+                    <img class="img-fluid" src="img/groupby11.png">
+                    <figcaption style="margin-bottom: 30px; font-style: italic; text-align: center; font-size: 16px">The result of a query without grouped aggregation</figcaption>
+                  </figure>
+                  <figure style="text-align: center;">
+                    <img class="img-fluid" src="img/groupby12.png">
+                    <figcaption style="margin-bottom: 30px; font-style: italic; text-align: center; font-size: 16px">The break points for grouping (on the field 'PlanName')</figcaption>
+                  </figure>
+                  <figure style="text-align: center;">
+                    <img class="img-fluid" src="img/groupby13.png">
+                    <figcaption style="margin-bottom: 30px; font-style: italic; text-align: center; font-size: 16px">The result that is grouped based on the column 'PlanName'</i></figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse1">
+                  GROUP BY multiple fields<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>When GROUP BY is used, only the grouping field and the statistical function can be displayed. Values for individual rows of non-grouping fields cannot be displayed.</li>
+                    <li>To display multiple grouping fields, users can include more fields in the GROUP BY clause</li>
+                    <li>Using the example above, we can add extra field to the GROUP BY clause as follow:
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/groupby21.png">
+                        <figcaption style="font-style: italic; text-align: center; font-size: 16px">Multiple fields in GROUP BY clause</figcaption>
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse1">
+                  GROUP BY - HAVING clause<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>The HAVING clause is used alongside the GROUP BY clause, with a purpose to filter or restrict groups created by the GROUP BY clause subject to some condition.</li>
+                    <li>It operates like a WHERE clause, but is applied to the grouping value.</li>
+                    <li>While WHERE clause is applied to each row before the grouping operation is done, HAVING clause is applied 
+                      after the grouping query and operates on the calculated grouping value (before it is displayed).</li>
+                    <li>Using the example above, we can add a HAVING clause as follow:
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/groupby-having.png">
+                        <figcaption style="font-style: italic; text-align: center; font-size: 16px">GROUP BY with HAVING clause</figcaption>
+                      </figure>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

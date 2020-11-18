@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 1 - RDBMS Introduction </title>
+</head>
+
+<body>
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item active" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a class="active" href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+
+
+<div class="content">
+<div class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+<div class="container">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 0px;">~ Lesson 1 ~<br> Database & RDBMS Introduction </h2>
+    <img class="img-fluid" src="img/l1-banner.png" alt="lesson-1-banner">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12", style="float: left;">
+        
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                  Database vs Database Management System (DBMS) definition? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li><b>Database:</b> A collection of data stored in a standardised format, designed to be shared by multiple users.
+                      <figure style="text-align: center;"> 
+                        <img class="img-fluid rounded mx-auto" src="img/data-con.jpg">
+                        <figcaption style="font-style: italic; margin-bottom: 30px;">The model of data continuum</figcaption>
+                      </figure>
+                    </li>
+                    <li><b>Database Management System:</b> Software that defines a database, stores the data, supports a query language, produces reports, and creates data entry scrren.</li>
+                  </ul>
+
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/data-pc.png">
+                        <figcaption style="font-style: italic; margin-bottom: 20px;">Database in PC applications</figcaption>
+                      </figure>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/data-wa.png">
+                        <figcaption style="font-style: italic; margin-bottom: 20px;">Database in web applications</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  Why are databases important? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Database is an integral part of all information systems</li>
+                    <li>Database is an integral part of most websites</li>
+                    <li>Almost all software developments involve working with a database</li>
+                    <li>Almost all databases use <b>SQL - Structured Query Lanugage</b></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                  Basic DBMS components? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Tables / Entities</li>
+                    <li>Records / Tuples / Rows</li>
+                    <li>Fields / Attributes / Columns
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/table-example.png">
+                        <figcaption style="font-style: italic; margin-bottom: 10px; line-height: 160%;">Example of a table (enity) with rows (records) and columns (fields)</figcaption>
+                      </figure></li>
+                    <li>Data Dictionary / Repository</li>
+                      <figure style="text-align: center;">
+                        <img class="img-fluid" src="img/repository.png">
+                        <figcaption style="font-style: italic; margin-bottom: 10px;">Example of a data repository <br> (or called Metadata)</figcaption>
+                      </figure></li>
+                    <li>DQL - Data Query Laguage</li>
+                    <li>DDL - Data Definition Laguage</li>
+                    <li>DML - Data Manipulation Laguage</li>
+                    <li>DCL - Data Control Laguage</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                  <h3 class="panel-title">
+                  <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                    Database structures<span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                  </a>
+                  </h3>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                  <div class="panel-body px-3 mb-4">
+                    <ul class="list-parent">
+                      <li><b>Relational database</b>
+                        <p>A relational database is a type of database that stores and provides access 
+                          to data points that are related to one another. Relational databases are based
+                          on the relational model, an intuitive, straightforward way of representing data in tables.</p>
+                        <figure style="text-align: center;">
+                          <img class="img-fluid" src="img/relational-dbms.png">
+                          <figcaption style="font-style: italic; margin-bottom: 10px;">Example of a relational model for a student enrolment database system</figcaption>
+                        </figure>
+                        <small>* <b>RDBMS </b> stands for Relational Database Management System - a DBMS designed specifically for relational databases</small>
+                        <p style="font-weight: bold; font-style: italic; margin-bottom: 30px;">Relational databases are the focus when learning and working with SQL.</p>
+                      </li>
+                      <li><b>Hierarchical database</b>
+                        <p>A hierarchical database model is a data model in which the data are organized into a 
+                          tree-like structure. The data are stored as records which are connected to one another
+                          through links. A record is a collection of fields, with each field containing only one value.</p>
+                        <figure style="text-align: center;">
+                          <img class="img-fluid" src="img/hierarchical-dbms.png">
+                          <figcaption style="font-style: italic; margin-bottom: 10px;">Example of a hierarchical model for a college-faculty database system</figcaption>
+                        </figure>
+                      </li>
+                      <li><b>Object database</b>
+                        <p>An object database is a database management system in which information is represented in 
+                          the form of objects as used in object-oriented programming. The efficiency of this database
+                           structure is greatly improved in areas which demand massive amounts of data about one item. </p>
+                        <figure style="text-align: center;">
+                          <img class="img-fluid" src="img/object-dbms.png">
+                          <figcaption style="font-style: italic; margin-bottom: 10px;">Example of an object database</figcaption>
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse2">
+                  Advantages of database approach for data management? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Minimal data redundancy</li>
+                    <li>Data consistency</li>
+                    <li>Integration of data</li>
+                    <li>Efficient sharing of data</li>
+                    <li>Enforcement of data</li>
+                    <li>Ease of application development</li>
+                    <li>Uniform security, privacy and integrity</li>
+                    <li>Data independece</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse2">
+                  Risks and Costs of database approach? <span><i class="fa fa-angle-double-down" style="font-size: 35px; float:right;" aria-hidden="true"></i></span>
+                </a>
+                </h3>
+              </div>
+              <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                <div class="panel-body px-3 mb-4">
+                  <ul class="list-parent">
+                    <li>Organisational conflicts</li>
+                    <li>Development project failure</li>
+                    <li>System failure</li>
+                    <li>Overhead costs</li>
+                    <li>Need for sophisticated personnel</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Lesson 5 - Relationship queries (JOIN) </title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item active d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+
+<!-- The lesson list sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2> Lesson List </h2>
+    <a href="l1.html">Lesson 1: Database & RDBMS Introduction</a>
+    <a href="l2.html">Lesson 2: SQL Introduction</a>
+    <a href="l3.html">Lesson 3: SQL - Retrieving data (SELECT)</a>
+    <a href="l4.html">Lesson 4: SQL - Grouping data (GROUP BY)</a>
+    <a class="active" href="l5.html">Lesson 5: SQL - Relationship queries (JOIN)</a>
+    <a href="l6.html">Lesson 6: SQL - Nested queries</a>
+    <a href="l7.html">Lesson 7: SQL - DDL & DML</a>
+</div>
+
+<div class="content">
+    <h2 class="lesson-header" style="text-align: center; line-height: 170%; margin-top: 16px;">- Lesson 5 - <br> SQL - Relationship queries (JOIN)</h2>
+    
+    <div class="join-slider">
+        <div id="slider-home">
+            <div class="hero" id="hero">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-right navicon" style="visibility: hidden">
+                            <a id="nav-toggle" class="nav_slide_button" href="#"><span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team text-center" id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="arrow">Summary of different types of JOIN and their syntax</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="team-wrapper col-md-12">
+                        <div id="teamSlider" class="row">
+                            <ul class="slides">
+                                <li>
+                                    <div class="col-md-6 col-xs-12 wp5">
+                                        <img src="img/Join6.png" alt="Full Outer Join 1" height="280" width=auto>
+                                        <h2>FULL OUTER JOIN (Inclusive)</h2>
+                                        <p>Select all records in tables A and B</p>
+                                    </div>
+                                    <div class="col-md-6 wp5 delay-05s second-join-in-tab">
+                                        <img src="img/Join1.png" alt="Full Outer Join 2" height="280" width=auto>
+                                        <h2>FULL OUTER JOIN (Exclusive)</h2>
+                                        <p>Select all records in tables A and B, except the ones existing in both</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-md-6 col-xs-12 wp5">
+                                        <img src="img/Join2.png" alt="Left Join 1" height="280" width=auto>
+                                        <h2>LEFT JOIN (Inclusive)</h2>
+                                        <p>Select all records in table A, even if they do not exist in table B</p>
+                                    </div>
+                                    <div class="col-md-6 wp5 delay-1s second-join-in-tab">
+                                        <img src="img/Join3.png" alt="Right Join 1" height="280" width=auto>
+                                        <h2>RIGHT JOIN (Inclusive)</h2>
+                                        <p>Select all records in table B, even if they do not exist in table A</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-md-6 wp5 delay-05s">
+                                        <img src="img/Join4.png" alt="Left Join 2" height="280" width=auto>
+                                        <h2>LEFT JOIN (Exclusive)</h2>
+                                        <p>Select the records existing only in table A but not in table B</p>
+                                    </div>
+                                    <div class="col-md-6 wp5 second-join-in-tab">
+                                        <img src="img/Join5.png" alt="Right Join 2" height="280" width=auto>
+                                        <h2>RIGHT JOIN (Exclusive)</h2>
+                                        <p>Select the records existing only in table B but not in table A</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-md-5 wp5 delay-1s">
+                                        <img class="img-fluid" src="img/Join0.png" alt="Inner Join" height="220" width=auto>
+                                        <h2>INNER JOIN</h2>
+                                        <p>Select the records existing in both table A and table B</p>
+                                    </div>
+                                    <div class="col-md-7 wp5 delay-05s second-join-in-tab" id="self-join">
+                                        <img class="img-fluid" src="img/Join7.jpg" alt="Self Join" height="220" width=auto>
+                                        <h2>Self Join</h2>
+                                        <p>Join a table to itself by making two copies of it</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p><small><i>Click/Swipe different slider tabs to view all types of JOIN</i></small></p>
+                <p style="margin-top: 50px"><b><i><a href="l5.html"><u>Go back to Lesson 5 page</u></a></i></b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4" style="margin-top: 20px;">
+
+  <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+            <div class="footerTitle" style="font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+            <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+</body>
+</html>

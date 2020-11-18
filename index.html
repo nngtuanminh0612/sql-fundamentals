@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/animate.css" rel="stylesheet">
+
+
+    <title> Homepage - SQL Fundamentals </title>
+</head>
+
+<body>
+
+
+<!--- Top Navigation Part -->
+<nav class = "navbar navbar-expand-xl navbar-light fixed-top" style = "background-color: rgb(232, 253, 255);">
+    <div>
+    <a class="navbar-brand" href="index.html">
+        <img class="sqlf-logo" src="img/logo2.png" alt="SQL Fundamentals Logo">
+    </a>  
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center sticky-top" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active d-flex flex-row-reverse"> 
+                <a class="nav-link" href="index.html"> Home </a>
+            </li>
+            <li class="nav-item d-flex flex-row-reverse dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="background-color: rgba(0, 0, 0, 0.7); margin-right: 8px;">
+                    <a class="dropdown-item" href="l1.html">L1: RDBMS Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l2.html">L2: SQL Introduction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l3.html">L3: Retrieving data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l4.html">L4: Grouping data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l5.html">L5: Relationship queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l6.html">L6: Nested queries</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="l7.html">L7: DDL & DML</a>
+                </div>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="aboutus.html"> About Us </a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link d-flex flex-row-reverse" href="contactus.html"> Contact Us </a>
+            </li>
+        
+        <li><form class="form-inline justify-content-end">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form></li>
+
+        </ul> 
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row" style="justify-content: center;">
+        <div id="bannerHome">
+            <img class="img-fluid" src="img/bannerhome.png">
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+            <div class="subscribe-text mb-15" style="text-align: center; margin-top: 18px; margin-bottom: 20px">
+                <h2 class="signup" style="margin-bottom: 20px">SQL Fundamentals</h2>
+                <span>Learn the beauty of SQL and relational databases</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+<div class="productBannerCatalogue" id="productBanner1">
+    <div class="productBannerCatalogueInfo1" style="left: 0;">
+        <h2 style="text-align: center; margin-top: 25px; margin-bottom: 0;">Why learn SQL?</h2>
+        <span>
+            SQL helps organize the use of data that is clean and flexible, 
+            allowing users to access data from many different starting points with equal ease.
+            SQL is particularly effective at data manipulation. Because it allows you to see 
+            the exact data and how it works, you'll have an easier time testing and manipulating the data!
+        </span>
+        <h3 style="border-bottom: 3px solid black; max-width: fit-content; float: right; margin-top: 50px;">
+            <a href="l2.html#showingSqlBenefits">READ MORE</a></h3>
+    </div>
+</div>
+</div>
+
+
+
+<div class="container" id="imageAboveFooter" style="text-align: center; margin-bottom: 20px;">
+<div>
+    <img class="img-fluid" src="img/productbanner11.jpg">
+</div>
+</div>
+
+
+<div class="container">
+    <span class="subHeading">
+        <h2 style="text-align: center;">Testimonials</h2>
+    </span>
+    <div class="row testimonial-card-container" style="justify-content: center;">
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_2_avatar_2754578.png">
+                    <span>"Absolutely incredible! Everything in one of my university courses is consolidated here, with much more professional and easy-to-learn format."
+                        <br><span class="testimonialName">Patsy H.</span></span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_1_avatar_2754574.png">
+                    <span>"The lessons are just simply brilliant! This website was my life saver last year before I went to my final exam about SQL. Love it so much!"
+                        <br><span class="testimonialName">Gomer L.</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_4_avatar_2754580.png">
+                    <span>"I will definitely recommend this website for any of my friends who are studying Data Science, Data Analytics, or even any other IT-related course."
+                        <br><span class="testimonialName">Liza J.</span>
+            </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_7_avatar_2754582.png">
+                    <span>SQL Fundamentals impressed me on multiple levels. Despite being a website free-access materials, it is even worth much more than many online courses I have paid."
+                        <br><span class="testimonialName">Eilis S.</span>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_11_avatar_2754576.png">
+                    <span>"This is simply unbelievable! Great job! As a junior data analyst, it is not even an exaggeration to say that will definitely be using SQL Fundamentals until I die!"
+                        <br><span class="testimonialName">Ford B.</span>
+                    </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_8_avatar_2754583.png">
+                    <span>"Thank You! Thank you for making SQL painless, pleasant and most of all hassle free!"
+                        <br><span class="testimonialName">Cacilie W.</span>
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_10_avatar_2754575.png">
+                    <span class="testimonialText">"It fits our needs perfectly. I am so pleased with the lessons."
+            <br><span class="testimonialName">Darien W.</span>
+            </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_2_avatar_2754578.png">
+                    <span class="testimonialText">"This is simply unbelievable!! Saving a lot of time searching through courses online and offline, I have gotten at least 50 times the value from SQL Fundamentals' lessons."
+            <br><span class="testimonialName">Tara M.</span>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_9_avatar_2754584.png">
+                    <span>"I like SQL Fundamentals more and more whenver I come here for help with SQL. I would like to personally thank you for your outstanding SQL contents."
+            <br><span class="testimonialName">Dagmar W.</span>
+            </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_8_avatar_2754583.png">
+                    <span>The lessons are just simply brilliant! This website was my life saver last year before I went to my final exam about SQL. Love it so much!"
+                        <br><span class="testimonialName">Eilis S.</span>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_7_avatar_2754582.png">
+                    <span>"Thank You! Thank you for making SQL painless, pleasant and most of all hassle free!"
+                        <br><span class="testimonialName">Cacilie W.</span>
+            </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_4_avatar_2754580.png">
+                    <span>"Absolutely incredible! Everything in one of my university courses is consolidated here, with much more professional and easy-to-learn format."
+            <br><span class="testimonialName">Liza J.</span>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_1_avatar_2754574.png">
+                    <span>"The lessons are just simply brilliant! This website was my life saver last year before I went to my final exam about SQL. Love it so much!"
+            <br><span class="testimonialName">Gomer L.</span></span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_2_avatar_2754578.png">
+                    <span>"I like SQL Fundamentals more and more whenver I come here for help with SQL. I would like to personally thank you for your outstanding SQL contents."
+            <br><span class="testimonialName">Patsy H.</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="card-container col-xs-12 col-sm-6 col-md-3">
+            <div class="card">
+                <div class="front">
+                    <img src="img/icons/iconfinder_8_avatar_2754583.png">
+                    <span>"SQL Fundamentals impressed me on multiple levels. Despite being a website free-access materials, it is even worth much more than many online courses I have paid.""
+                        <br><span class="testimonialName">Cacilie W.</span>
+                        </span>
+                </div>
+                <div class="back">
+                    <img src="img/icons/iconfinder_11_avatar_2754576.png">
+                    <span>"I will definitely recommend this website for any of my friends who are studying Data Science, Data Analytics, or even any other IT-related course!"
+                        <br><span class="testimonialName">Ford B.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-xs-12 mt-md-0 mt-3">
+            <div class="col-md-12">
+                <img src="img/logo3.png" alt="SQL Fundamentals Logo" style="margin: auto; display: block; height: 80px; width: auto;">
+                <div class="footerTitle" style=" margin-top: 10px; font-size: 18px; font-weight: 900; text-align: center;">SQL Fundamentals</div>
+                <p class="footerItems" style="font-weight: bold;">We are here to help you conquer any data complexity with SQL</p>
+            </div>
+        </div>
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Explore</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="index.html">Home</a></li>
+                <li class="footerItems"><a href="l1.html">Lessons</a></li>
+                <li class="footerItems"><a href="aboutus.html">About Us</a></li>
+                <li class="footerItems"><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Visit</span>
+            <ul class="list-unstyled">
+                <span class="footerItems">124 La Trobe St,<br>Melbourne<br>VIC 3000</span>
+            </ul>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Follow</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Blog</a></li>
+                <li class="footerItems"><a href="#!">Facebook</a></li>
+                <li class="footerItems"><a href="#!">Instagram</a></li>
+                <li class="footerItems"><a href="#!">Twitter</a></li>
+                <li class="footerItems"><a href="#!">YouTube</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-sm-6 mb-md-0 mb-3">
+            <span class="footerTitle">Legal</span>
+            <ul class="list-unstyled">
+                <li class="footerItems"><a href="#!">Terms of Use</a></li>
+                <li class="footerItems"><a href="#!">Privacy</a></li>
+                <li class="footerItems"><a href="#!">Security</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <div class="genericContainer" id="copyrightFooter">
+        <p>&copy; 2020 SQL Fundamentals Ltd.</p>
+    </div>
+
+</footer>
+
+</body>
+</html>
